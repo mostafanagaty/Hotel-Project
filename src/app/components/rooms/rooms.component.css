@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Section 1 - Header with Background */
+.section1 {
+    height: 500px;
+    background-image: url(../../../../public/cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.section1 h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.5rem;
+    padding-top: 240px;
+}
+
+/* Stepper */
+.stepper-content {
+    margin-top: 110px;
+    opacity: 0.7;
+}
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+}
+
+.stepper .active {
+    border: 1px solid #003a70;
+    background-color: #003a70;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    color: #ceccd8;
+    font-size: 14px;
+}
+
+.stepper span {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+/* Section 2 - Dropdown Menu */
+.section2 {
+    background-color: #003a70;
+    padding: 20px 0;
+    height: 95px;
+}
+
+.sec {
+    color: #b4b3bb;
+}
+
+.menu > li {
+    position: relative;
+    font-size: 14px;
+}
+
+.menu > li:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    left: -20px;
+    background-color: #003a70;
+    border: 1px solid #003a70;
+    display: none;
+    z-index: 1;
+    width: 159px;
+    cursor: pointer;
+}
+
+.dropdown li {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.dropdown li a {
+    color: #b4b3bb;
+    text-decoration: none;
+}
+
+.menu li.active {
+    border-bottom: 2px solid #b4b3bb;
+}
+
+/* Section 3 - Room Cards & Filters */
+.allBranches {
+    margin-top: 80px;
+    padding: 20px;
+    background-color: #003a70;
+    border-radius: 8px;
+    color: #fff;
+    width: 360px;
+}
+
+.reservation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 29px;
+}
+
+.reservation label {
+    background: #4285F4;
+    width: 100%;
+    font-size: 1.6em;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px 8px 0 0;
+    color: #fff;
+}
+
+.reservation input {
+    background-color: #003A70;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 40px;
+    border: none;
+    text-align: center;
+    color: #fFF;
+}
+
+/* Room Cards */
+.container1 {
+    margin-top: 80px;
+}
+
+.cards {
+    background-color: white;
+    border-radius: 0px;
+    border: 1px solid rgb(218, 211, 211);
+}
+
+.cards h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-left: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.iconP {
+    padding-right: 13px;
+    padding-left: 22px;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.contentCard {
+    line-height: 25px;
+    font-size: 14px;
+    opacity: 0.6;
+    margin-left: 8px;
+    font-weight: lighter;
+    width: 85%;
+}
+
+.btnCard {
+    width: 60%;
+    padding: 12px;
+    border: 2px solid #003A70;
+    font-size: 1rem;
+    color: #003A70;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 0px;
+}
+
+.info {
+    background-color: #003A70;
+    width: 50px;
+    height: 52px;
+    font-size: 13px;
+    text-align: center;
+    padding: 13px;
+    margin-top: 15px;
+}
+
+.hr1 {
+    margin: 0 25px;
+    opacity: 0.1;
+}
+
+.iconFooter {
+    margin-left: 50px;
+}
+
+/* Icons and Banner */
+.iconBannerContainer {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+.iconFooter i {
+    padding: 25px 38px 10px 0px;
+    font-size: 18px;
+}
+
+.banner {
+    display: none;
+    color: #b4b3bb;
+    font-size: 12px;
+    background-color: #003A70;
+    border: #003A70 solid 1px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    text-align: center;
+}
+
+.iconBannerContainer:hover .banner {
+    display: block;
+}
+
+.iconBannerContainer:nth-child(1) .banner {
+    left: -50px;
+    width: 110px;
+}
+
+.iconBannerContainer:nth-child(2) .banner {
+    left: -45px;
+    width: 121px;
+}
+
+.iconBannerContainer:nth-child(3) .banner {
+    left: -25px;
+    width: 80px;
+}
+
+.iconBannerContainer:nth-child(4) .banner {
+    left: -35px;
+    width: 121px;
+}
+

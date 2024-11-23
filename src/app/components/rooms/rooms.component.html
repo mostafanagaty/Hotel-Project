@@ -1,0 +1,102 @@
+<div class="section1 bg-primary py-5">
+  <h1 class="text-center text-light fw-medium">{{Title}}</h1>
+  <div class="stepper-content d-flex justify-content-center">
+      <div class="stepper d-flex justify-content-between">
+        <div class="step text-center">
+          <span class="active">1</span>
+          <div>Search</div>
+        </div>
+        <div class="step text-center">
+          <span>2</span>
+          <div>Booking</div>
+        </div>
+        <div class="step text-center">
+          <span>3</span>
+          <div>Checkout</div>
+        </div>
+        <div class="step text-center">
+          <span>4</span>
+          <div>Thank You</div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="section2 text-center my-0">
+  <div class="sec d-inline-block mx-2">
+      <ul class="menu mt-3 pe-5 list-unstyled">
+          <li (click)="toggleUnderline('stayPrice')" [ngClass]="{'active': activeMenu === 'stayPrice'}" class="position-relative">
+            Stay Price ▾
+            <ul class="dropdown position-absolute shadow pt-4 rounded list-unstyled">
+               <li><a (click)="filterRooms('lowestPrice')">Lowest Price</a></li> 
+               <li><a (click)="filterRooms('highestPrice')">Highest Price</a></li>
+            </ul>
+          </li>
+      </ul>
+  </div>
+  <div class="sec d-inline-block mx-2">
+      <ul class="menu mt-3 pe-5 list-unstyled">
+          <li (click)="toggleUnderline('roomSize')" [ngClass]="{'active': activeMenu === 'roomSize'}" class="position-relative">
+            Room Size ▾
+            <ul class="dropdown position-absolute shadow pt-4 rounded list-unstyled">
+              <li><a (click)="filterRooms('largestRoom')">Larger Room</a></li>
+              <li><a (click)="filterRooms('smallestRoom')">Smallest Room</a></li>
+            </ul>
+          </li>
+      </ul>
+  </div>
+</div>
+
+<div class="section3 row g-4 mx-5">
+  <div class="allBranches col-lg-4 col-md-6 ms-4 ">
+      <h2 class="text-center text-light">Our Branch</h2>
+      <div class="reservation mb-3">
+          <label for="checkIn">Check-in</label> 
+          <input type="date" id="checkIn" [(ngModel)]="checkInDate" (change)="onCheckInDateChange()" class="form-control" />
+      </div>
+      <div class="reservation mb-3">
+          <label for="checkOut">Check-out</label> 
+          <input type="date" id="checkOut" [(ngModel)]="checkOutDate" (change)="onCheckOutDateChange()" class="form-control" />
+      </div>
+      <div class="reservation mb-3">
+          <label for="nights">NIGHTS</label>
+          <input type="number" id="nights" [(ngModel)]="nights" readonly class="form-control" />
+      </div>
+      <div class="reservation mb-3">
+          <label for="adults">GUESTS</label>
+          <input type="number" id="adults" [(ngModel)]="adults" min="1" class="form-control" />
+      </div>
+  </div>
+
+  <div class="container1 ps-4 col-lg-4 col-md-6" *ngFor="let room of filteredRooms; trackBy: trackRoomById">
+      <mat-card appearance="outlined" class="cards d-flex flex-column">
+          <img mat-card-image [src]="room.imgUrl" alt="{{ room.name }}" class="img-fluid">
+          <mat-card-title>
+              <h3 routerLink="/details" (click)="detalis(room.id)">{{ room.name }}</h3>
+          </mat-card-title>
+          <mat-card-subtitle>
+              <p>
+                  <i class="fa-regular fa-circle-user fa-sm iconP" style="color: #b4b3bb;"> {{ room.guests }} Guests</i>
+                  <i class="fa-solid fa-hotel fa-sm iconP" style="color: #b4b3bb;"> {{ room.size }} ft</i> 
+              </p>
+          </mat-card-subtitle>
+          <mat-card-content class="contentCard">
+              <p>{{ room.info }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+              <button class="btnCard btn ms-3 mt-3" [routerLink]="['/booking', room.id]">BOOK NOW FOR {{ room.price }} $</button>
+              <p class="info"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="7.5" viewBox="0 0 192 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z"/></svg></p>
+          </mat-card-actions>
+          <hr class="hr1">
+          <mat-card-footer>
+              <p class="iconFooter d-flex flex-wrap">
+                  <span *ngFor="let amenity of room.amenities" class="iconBannerContainer mx-2">
+                      <i [class]="'fa-solid ' + amenity.icon" style="color: #b4b3bb;"></i>
+                      <span class="banner">{{ amenity.label }}</span>
+                  </span>
+              </p>
+          </mat-card-footer>
+      </mat-card>
+  </div>
+</div>
+
